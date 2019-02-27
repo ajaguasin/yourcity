@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import Home from "./pages/Home/";
+import Home from "./pages/Home/Home";
+import Results from "./pages/Results/Results";
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
       <div>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/results" component={Results} />
         </Switch>
       </div>
     );
