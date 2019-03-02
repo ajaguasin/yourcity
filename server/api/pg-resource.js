@@ -15,6 +15,20 @@ const pgResource = postgres => {
       } catch (error) {
         throw "Food not found";
       }
+    },
+
+    async getFoodByQuery(cuisine, type) {
+      const getFoodQuery = {
+        text: "SELECT * FROM food WHERE food.cuisine = $1 AND food.type = $2;",
+        values: [cuisine, type]
+      };
+
+      try {
+        const allFood = await postgres.query(getFoodQuery);
+        return allFood.rows;
+      } catch (error) {
+        throw "Food not found";
+      }
     }
   };
 };
