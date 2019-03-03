@@ -8,4 +8,12 @@ router.get("/", async (req, res, next) => {
   res.send(result);
 });
 
+router.get("/:cuisine/:type", async (req, res, next) => {
+  const result = await pgResource.getFoodByQuery(
+    req.params.cuisine,
+    req.params.type
+  );
+  res.send(result);
+});
+
 module.exports = router;
